@@ -16,6 +16,7 @@ namespace backend.Configurations
             CreateMap<Country, CountryCreationDTO>().ReverseMap();
             CreateMap<Hotel, HotelDTO>().ReverseMap();
             CreateMap<Hotel, HotelCreationDTO>().ReverseMap();
+            CreateMap<User, UserDTO>().ReverseMap();
         }
     }
 }

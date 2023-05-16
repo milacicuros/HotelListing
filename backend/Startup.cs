@@ -7,9 +7,11 @@ using backend.Configurations;
 using backend.Data;
 using backend.DataAccess.IRepository;
 using backend.DataAccess.Repository;
+using backend.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -37,6 +39,10 @@ namespace backend
                 options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection"))
             );
 
+            services.AddAuthentication();
+            services.ConfigureIdentity();
+            services.ConfigureJWT(Configuration);
+
             services.AddCors(options => {
                 options.AddPolicy("CorsPolicy", builder => 
                 builder.AllowAnyOrigin()
@@ -47,6 +53,7 @@ namespace backend
             services.AddAutoMapper(typeof(MapperInitializer));
 
             services.AddTransient<IUnitOfWork, UnitOfWork>();
+            services.AddScoped<IAuthManager, AuthManager>();
 
             services.AddSwaggerGen(c =>
             {
@@ -73,6 +80,8 @@ namespace backend
             app.UseCors("CorsPolicy");
 
             app.UseRouting();
+
+            app.UseAuthentication();
 
             app.UseAuthorization();
 
