@@ -20,7 +20,7 @@ namespace backend.Models
         [Range(1,5)]
         public double Rating { get; set; }
         
-        [Required]
-        public double CountryId { get; set; }
+        //[Required]
+        public int CountryId { get; set; }
     }
 }
