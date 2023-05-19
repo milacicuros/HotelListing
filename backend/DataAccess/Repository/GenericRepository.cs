@@ -5,7 +5,9 @@ using System.Linq.Expressions;
 using System.Threading.Tasks;
 using backend.Data;
 using backend.DataAccess.IRepository;
+using backend.Models;
 using Microsoft.EntityFrameworkCore;
+using X.PagedList;
 
 namespace backend.DataAccess.Repository
 {
@@ -65,6 +67,21 @@ namespace backend.DataAccess.Repository
             }
 
             return await query.AsNoTracking().ToListAsync();
+        }
+
+        public async Task<IPagedList<T>> GetAllPaged(PaginationDTO paginationDTO, List<string> includes = null)
+        {
+            IQueryable<T> query = _db;
+
+            if (includes != null) {
+                foreach (var includeProperty in includes)
+                {
+                    query = query.Include(includeProperty);
+                }
+            }
+
+            return await query.AsNoTracking()
+                .ToPagedListAsync(paginationDTO.PageNumber,paginationDTO.PageSize);
         }
 
         public async Task Insert(T entity)

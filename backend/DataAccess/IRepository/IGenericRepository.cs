@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
+using backend.Models;
+using X.PagedList;
 
 namespace backend.DataAccess.IRepository
 {
@@ -12,6 +14,11 @@ namespace backend.DataAccess.IRepository
             Expression<Func<T,bool>> expression = null,
             Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null,
             List<string> includes = null
+        );
+
+        Task<IPagedList<T>> GetAllPaged(
+            PaginationDTO paginationDTO,
+            List<string> includes = null         
         );
 
         Task<T> Get(

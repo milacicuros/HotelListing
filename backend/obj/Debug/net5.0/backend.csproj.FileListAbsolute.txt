@@ -65,3 +65,9 @@ C:\Users\PC\source\HotelListing\backend\bin\Debug\net5.0\Microsoft.AspNetCore.Cr
 C:\Users\PC\source\HotelListing\backend\bin\Debug\net5.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 C:\Users\PC\source\HotelListing\backend\bin\Debug\net5.0\Microsoft.Extensions.Identity.Core.dll
 C:\Users\PC\source\HotelListing\backend\bin\Debug\net5.0\Microsoft.Extensions.Identity.Stores.dll
+C:\Users\PC\source\HotelListing\backend\bin\Debug\net5.0\X.PagedList.dll
+C:\Users\PC\source\HotelListing\backend\bin\Debug\net5.0\X.PagedList.Mvc.Core.dll
+C:\Users\PC\source\HotelListing\backend\bin\Debug\net5.0\X.PagedList.Web.Common.dll
+C:\Users\PC\source\HotelListing\backend\bin\Debug\net5.0\Microsoft.AspNetCore.Mvc.Versioning.dll
+C:\Users\PC\source\HotelListing\backend\bin\Debug\net5.0\Marvin.Cache.Headers.dll
+C:\Users\PC\source\HotelListing\backend\bin\Debug\net5.0\AspNetCoreRateLimit.dll
